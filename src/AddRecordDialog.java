@@ -66,7 +66,7 @@ public class AddRecordDialog extends JDialog implements ActionListener {
 		empDetails.add(surnameField = new JTextField(20), LayoutManager.Layout2);
 
 		empDetails.add(new JLabel("First Name:"),LayoutManager.Layout1);
-		empDetails.add(firstNameField = new JTextField(20), LayoutManager.Layout1);
+		empDetails.add(firstNameField = new JTextField(20), LayoutManager.Layout2);
 
 		empDetails.add(new JLabel("Gender:"), LayoutManager.Layout1);
 		empDetails.add(genderCombo = new JComboBox<String>(this.parent.gender),LayoutManager.Layout2);
@@ -75,7 +75,7 @@ public class AddRecordDialog extends JDialog implements ActionListener {
 		empDetails.add(departmentCombo = new JComboBox<String>(this.parent.department), LayoutManager.Layout2);
 
 		empDetails.add(new JLabel("Salary:"), LayoutManager.Layout1);
-		empDetails.add(salaryField = new JTextField(20), "growx, pushx, wrap");
+		empDetails.add(salaryField = new JTextField(20), LayoutManager.Layout2);
 
 		empDetails.add(new JLabel("Full Time:"), LayoutManager.Layout1);
 		empDetails.add(fullTimeCombo = new JComboBox<String>(this.parent.fullTime), LayoutManager.Layout2);
@@ -181,7 +181,8 @@ public class AddRecordDialog extends JDialog implements ActionListener {
 			// else display message and set text fields to white colour
 			else {
 				JOptionPane.showMessageDialog(null, "Wrong values or format! Please check!");
-				
+				ColorManager bgColor = new ColorManager(ppsField,surnameField,firstNameField,salaryField,genderCombo,departmentCombo,fullTimeCombo);
+				bgColor.setToWhite();
 			}// end else
 		}// end if
 		else if (e.getSource() == cancel)
