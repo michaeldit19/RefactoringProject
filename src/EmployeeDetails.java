@@ -52,19 +52,26 @@ import net.miginfocom.swing.MigLayout;
 public class EmployeeDetails extends JFrame implements ActionListener, ItemListener, DocumentListener, WindowListener {
 	// decimal format for inactive currency text field
 	private static final DecimalFormat format = new DecimalFormat("\u20ac ###,###,##0.00");
+	
 	// decimal format for active currency text field
 	private static final DecimalFormat fieldFormat = new DecimalFormat("0.00");
+	
 	// hold object start position in file
 	private long currentByteStart = 0;
 	private RandomFile application = new RandomFile();
+	
 	// display files in File Chooser only with extension .dat
 	private FileNameExtensionFilter datfilter = new FileNameExtensionFilter("dat files (*.dat)", "dat");
+	
 	// hold file name and path for current file in use
 	private File file;
+	
 	// holds true or false if any changes are made for text fields
 	private boolean change = false;
+	
 	// holds true or false if any changes are made for file content
 	boolean changesMade = false;
+	
 	private JMenuItem open, save, saveAs, create, modify, delete, firstItem, lastItem, nextItem, prevItem, searchById,
 			searchBySurname, listAll, closeApp;
 	private JButton first, previous, next, last, add, edit, deleteButton, displayAll, searchId, searchSurname,
@@ -653,7 +660,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	public boolean correctPps(String pps, long currentByte) {
 		boolean ppsExist = false;
 		// check for correct PPS format based on assignment description
-		if (pps.length() == 8 || pps.length() == 9) {
+		if (pps.length() == 7 || pps.length() == 8) {
 			if (Character.isDigit(pps.charAt(0)) && Character.isDigit(pps.charAt(1))
 					&& Character.isDigit(pps.charAt(2))	&& Character.isDigit(pps.charAt(3)) 
 					&& Character.isDigit(pps.charAt(4))	&& Character.isDigit(pps.charAt(5)) 
@@ -1115,7 +1122,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 	// WindowsListener methods
 	public void windowClosing(WindowEvent e) {
-		// exit application
+		
 		exitApp();
 	}
 
@@ -1136,4 +1143,4 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 	public void windowOpened(WindowEvent e) {
 	}
-}// end class EmployeeDetails
+}

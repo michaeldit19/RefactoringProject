@@ -1,3 +1,4 @@
+//Organises the layout features on the application
 
 public class LayoutManager {
 	

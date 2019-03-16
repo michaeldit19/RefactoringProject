@@ -246,8 +246,7 @@ public class RandomFile {
 		long oldByteStart = currentByteStart;
 		long currentByte = 0;
 
-		try {// try to read from file and look for PPS Number
-			// Start from start of file and loop until PPS Number is found or search returned to start position
+		try {
 			while (currentByte != input.length() && !ppsExist) {
 				//if PPS Number is in position of current object - skip comparison
 				if (currentByte != oldByteStart) {
@@ -274,8 +273,7 @@ public class RandomFile {
 		long currentByte = 0;
 		RandomAccessEmployeeRecord record = new RandomAccessEmployeeRecord();
 
-		try {// try to read from file and look for ID
-			// Start from start of file and loop until valid ID is found or search returned to start position
+		try {
 			while (currentByte != input.length() && !someoneToDisplay) {
 				input.seek(currentByte);// Look for proper position in file
 				record.read(input);// Get record from file
@@ -283,11 +281,11 @@ public class RandomFile {
 				if (record.getEmployeeId() > 0)
 					someoneToDisplay = true;
 				currentByte = currentByte + RandomAccessEmployeeRecord.SIZE;
-			}// end while
-		}// end try
+			}
+		}
 		catch (IOException e) {
 		}// end catch
 
 		return someoneToDisplay;
-	}// end isSomeoneToDisplay
-}// end class RandomFile
+	}
+}
