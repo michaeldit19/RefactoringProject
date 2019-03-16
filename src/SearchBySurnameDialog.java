@@ -81,5 +81,5 @@ public class SearchBySurnameDialog extends JDialog implements ActionListener{
 		// else dispose dialog
 		else if(e.getSource() == cancel)
 			dispose();// dispose dialog
-	}// end actionPerformed
-}// end class SearchBySurnameDialog
+	}
+}
